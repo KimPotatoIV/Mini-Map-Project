@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd4bhx1th7s27"]
+
+[ext_resource type="Script" path="res://scenes/mini_map/mini_map.gd" id="1_wa27f"]
+[ext_resource type="Texture2D" uid="uid://dovjhh8c1xf1k" path="res://scenes/mini_map/mini_map_in.png" id="2_bjix7"]
+[ext_resource type="Texture2D" uid="uid://c5ffeggfrmq7b" path="res://scenes/mini_map/mini_map_out.png" id="3_apkfq"]
+[ext_resource type="Texture2D" uid="uid://bpgq6ndrl80oe" path="res://scenes/mini_map/player_dot.png" id="4_6f0xl"]
+
+[node name="MiniMap" type="CanvasLayer"]
+script = ExtResource("1_wa27f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(320, 320)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_top = 80.0
+offset_right = -80.0
+offset_bottom = 400.0
+grow_horizontal = 0
+texture = ExtResource("2_bjix7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="TextureRect/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(320, 320)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="TextureRect/SubViewportContainer/SubViewport"]
+zoom = Vector2(0.25, 0.25)
+
+[node name="MiniMapOutline" type="Sprite2D" parent="."]
+position = Vector2(1680, 240)
+texture = ExtResource("3_apkfq")
+
+[node name="PlayerDot" type="Sprite2D" parent="."]
+position = Vector2(1680, 240)
+texture = ExtResource("4_6f0xl")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqaf82todm6ox"]
+
+[ext_resource type="PackedScene" uid="uid://dmpapgf6ogn1f" path="res://scenes/background/background.tscn" id="1_bqnb8"]
+[ext_resource type="PackedScene" uid="uid://fsgkkruhiy05" path="res://scenes/player/player.tscn" id="1_crrwb"]
+[ext_resource type="PackedScene" uid="uid://dd4bhx1th7s27" path="res://scenes/mini_map/mini_map.tscn" id="2_koiyt"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_bqnb8")]
+
+[node name="Player" parent="." instance=ExtResource("1_crrwb")]
+
+[node name="MiniMap" parent="." node_paths=PackedStringArray("player_scene") instance=ExtResource("2_koiyt")]
+player_scene = NodePath("../Player")
