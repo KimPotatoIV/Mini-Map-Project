@@ -2,7 +2,7 @@ extends CanvasLayer
 
 ##################################################
 @export var player_scene: Node2D
-# 플레이어 씬 입력 창 생성
+# 플레이어 씬 설정 창 생성
 
 var sub_viewport_node: SubViewport
 # SubViewport 노드
